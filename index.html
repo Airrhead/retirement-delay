@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>延迟退休:终点线</title>
+    <link rel="shortcut icon" href="image/icon.png">
+    <link rel="stylesheet" href="css/policy.css" />
+    <link rel="stylesheet" href="css/timeline.min.css" />
+    <link rel="stylesheet" href="https://www.jq22.com/jquery/font-awesome.4.7.0.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="css/body.css">
+    <link rel="stylesheet" href="css/story.css">
+    <link rel="stylesheet" href="css/preloader.css">
+    <link rel="stylesheet" href="css/nav_scroll.css">
+    <link rel="stylesheet" href="css/top.css">
+    <link rel="stylesheet" href="css/swiper.css">
+    <link rel="stylesheet" href="css/welcome_line.css">
+    <link href="css/animate.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/icons8-十字路口-ios-17-filled-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/icons8-十字路口-ios-17-filled-96.png">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <link rel="stylesheet" href="css/weibo_gender_geo_dist.css">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/extension/bmap.min.js"></script>
+    <link rel="stylesheet" href="css/policy_lines.css">
+    <link rel="stylesheet" href="css/flying-cards.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+    <style>
+        html {
+        scroll-behavior: smooth;
+        }
+
+        .flourish-embed-iframe {
+            opacity: 1;
+        }
+        .intro-text p {
+        font-family: 'zhengwen';
+        font-weight: 100;
+        font-size: 16px;
+        line-height: 1.5em;
+        margin: 0 0 1.5em 0;
+        }
+
+        @media only screen and (max-width: 600px) {
+        .intro-text p {
+            font-family: 'zhengwen';
+            font-weight: 100;
+            font-size: 14px;
+            line-height: 1.6em;
+            margin: 0 0 1.5em 0;
+        }
+        } 
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        @media screen and (max-width: 600px) {
+            .content {
+                padding: 0 10px;
+            }
+        }
+        
+        /* 每节封面css */
+        
+        .chapter-cover {
+        height: 100vh;
+        width: 100%;
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+        position: relative;
+        }
+       
+        .chapter-cover2 {
+        background-image: url(images/cover2.png);
+        background-size: cover;
+        }
+
+        .chapter-cover3 {
+        background-image: url(images/cover3.png);
+        }
+
+        .chapter-cover4 {
+        background-image: url(images/cover4.png);
+        }
+        
+        .fengeshang {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        transform: translateY(-62%);
+        }
+
+        .fengexia {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        transform: translateY(40%);
+        }
+        
+        /* 关于养老金的scroll变化 */
+        .charts-container {
+        max-width: 1000px;
+        margin: auto;
+        margin-bottom: 700px;
+        }
+
+        .placeholder {
+        margin-bottom: 600px;
+        }
+        
+        #xiaceng {
+        width: 100%;
+        z-index: 0;
+        opacity: 1;
+
+        }
+        #shangceng {
+        width: 100%;
+        z-index: 3;
+        opacity: 1;
+        }
+
+        .container1 {
+        position: sticky;
+        top: 40px;
+        width: 88%;
+        height: auto;
+        margin: 0 auto; 
+        }
+
+        .container1 img {
+        /* 让一个div里的img重叠 */
+        position: absolute;
+        top: auto;
+        left: auto;
+        width: 100%;
+        height: auto;
+        }
+
+        /* 剪影end的parallax */
+        .audience {
+       left: 0;
+       top:0;
+        }
+
+        .audience img {
+        position: relative;
+        max-width: 115%;
+        z-index: 2;
+        left: -100px;
+        top: 0;
+        }
+
+        #sectiontwo{
+        height: 450px;
+        }
+
+        .byebye_end {
+            background-color: #4477aa;
+            height: 80vh;
+            width: 100%;
+            margin-top: 50px;
+            z-index: 3;
+        }
+
+        .content_n {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0; /* 取消默认边距 */
+            padding: 0; /* 取消默认内边距 */
+            width: 100%; /* 确保宽度占满父容器的宽度 */
+        }
+
+        .hr-edge-weak {
+        border: 0;
+        padding-top: 1px;
+        background: linear-gradient(to right, transparent, #295395, transparent);
+}
+
+      
+        
+        
+    </style>
+</head>
+
+<body>
+
+
+<!-- 预加载 但暂时不需要-->
+  <!--   <div class="preloader" v-if="loaded !== 0">
+        <div class="preloader__status">
+          <div class="preloader__status-text">loading {{ loaded }} %</div>
+          <div class="preloader__status-loader">
+            <div class="preloader__status-bar" :style="{ width: loadStyle.width }"></div>
+          </div>
+        </div>
+    </div> -->
+<!-- 预加载结束 -->
+
+    <!-- 导航条+封面+引言 -->
+    <div id="nav-intro">
+ 
+        <!-- 导航条 -->
+        <nav class="navbox">
+          <div class="top-nav navbox loading">
+            <div class="sect-btns navbox">
+              <div class="btn-wrapper navbox">
+                <button class="sectionBox navbox" id="sectionBox-intro" aria-label="jump to intro" data-target="#intro">
+                </button>
+                <p class="label navbox" id="label-intro" style="width: 2em;">引言</p>
+              </div>
+              <div class="btn-wrapper navbox">
+                <button class="sectionBox navbox" id="sectionBox-trend" aria-label="jump to trend"
+                  data-target="#trend"></button>
+                <p class="label navbox" id="label-trend" style="width: 8em;">世界正在变老</p>
+              </div>
+              <div class="btn-wrapper navbox">
+                <button class="sectionBox navbox" id="sectionBox-action" aria-label="jump to action"
+                  data-target="#action"></button>
+                <p class="label navbox" id="label-action" style="width: 8em;">过去与现在</p>
+              </div>
+              <div class="btn-wrapper navbox">
+                <button class="sectionBox navbox" id="sectionBox-recommend" aria-label="jump to recommend"
+                  data-target="#recommend"></button>
+                <p class="label navbox" id="label-recommend" style="width: 8em;">不止“延迟退休“</p>
+              </div>
+              <div class="btn-wrapper navbox">
+                <button class="sectionBox navbox" id="sectionBox-methods" aria-label="jump to methods"
+                  data-target="#methods"></button>
+                <p class="label navbox" id="label-methods" style="width: 2em;">结语</p>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <!-- 导航条结束 -->
+    
+        <!-- cover -->
+        <div class="cover">
+          <img class="top" src="./images/cover.png" width="100%" height="auto">
+          <!-- img class="top-ph" src="./images/cover-cn-ph.png" width="100%" height="auto"> --><!-- 移动端封面 -->
+          <div class="field">
+            <div class="scroll" id="scrollButton"></div>
+          </div>
+          </a>
+        </div>
+        <!-- cover结束 -->
+        
+        <!-- chapter1_intro -->
+    <div id="intro" class="part">
+          <div class="content intro-text">
+            <br><br>
+            <p class="line1 welcome1" style="font-weight: bolder;">“面对退休，真的能做到人人平等吗”</p>
+            <p class="line2 welcome2">这是初入职场的打工人小妍在看到“延迟退休年龄”新闻时提出的质疑。</p>
+            <p class="line3 welcome3" style="font-weight: bolder;">2024年9月13日，全国人大常委会通过决定，将实施渐进式延迟法定退休年龄：“用十五年时间，逐步将男职工的法定退休年龄从原六十周岁延迟至六十三周岁，将女职工的法定退休年龄从原五十周岁、五十五周岁分别延迟至五十五周岁、五十八周岁。”</p>
+            <p class="line4 welcome4">对于很多人而言，退休不仅是离开工作岗位的标志，它关乎到个人的生活质量、健康状况以及在社会中的角色转变。然而，随着退休年龄的延迟，是否意味着每个人都能在相同的条件下享受这一“权利”？不论是在政策制定者的会议桌前，还是在普通人群体的讨论中，这个问题都显得尤为敏感和迫切。</p>
+            <p class="line5 welcome5">舆论场内，嘈杂的正反方无休止地“争论”：延迟退休是否合理？面对延迟退休，打工人应该如何“调理”心态？退休后的普通人能得到哪些保障措施？</p>
+            <p class="line6 welcome6">延迟退休政策的推行，带来了诸多社会焦虑。有人认为，延迟退休是一种适应人口老龄化的必要举措，能够保障养老金的支付能力和社会保障系统的可持续性；然而，也有声音指出，延迟退休不仅对身体状况较差的老年劳动者带来更大的负担，也可能加剧年轻人就业压力，形成代际之间的不平衡。</p>
+            <!-- <p class="line7 welcome7">回头看，如果将世界各国的老龄化程度比作一把尺子，中国该站在尺子的哪一个刻度上呢？在这变动频发的76年里，中国的退休政策又经历了多少轮的“调整与变革”呢？<br><span style="opacity: 0;">空格</span>从1951年出台的最初退休年龄规定，到近些年关于延迟退休的各种讨论和试行，退休政策的每次变化都与国家的经济发展、社会福利、人口结构变化密切相关。<br><span style="opacity: 0;">空格</span>中国作为世界上人口最多的国家，其老龄化问题更加复杂，如何平衡老龄化带来的社会压力与劳动力市场的供需矛盾，成为了政策制定者不断面临的挑战。</p>
+             -->
+            <!-- <p class="line8 welcome8">时代催促着创新举措与政策改良。处于时代齿轮上的我们，又能从世界的其他邻居那学习到什么呢？或许，未来的我们，需要关注的“不只延迟退休’”。如何在全球老龄化的大背景下，实现更加公平、可持续的退休保障体系，是全人类需要思考的问题……</p> -->
+            <!-- <p class="line9 welcome9">总感觉呈现上会怪怪的，因为一般来说震撼特效放在最前面，结束以后开始叙事，但这里的动效似乎有点靠后，所以有人这部分的顺序和内容有更好的想法吗，是删去特效还是放在最前面呵呵呵呵这都是我瞎说的。以下文案均为ai暂时生成。</p>  -->
+          </div>
+          
+          
+        <div class="content" style="width: 80%; margin: 40px auto;">
+            <br><br>
+            <div id="trigger-area" class="trigger-area" style="margin: 35px auto; display: flex; justify-content: center; align-items: center;">
+              向下滚动，一起来看看网友们对延迟退休政策的讨论...
+            </div>
+            <br><br>
+          </div>
+          
+          <div class="content animate__animated animate__fadeIn wow" >
+            <div class="chart"><p>讨论热度不断增加，负面情感为主</p></div>
+            <div id="sent" style="width: 100%; height: 600px; margin: 20px 0;"></div>
+            <div class="note" style="margin-top: -5%;">
+                数据来源：于2024年11月2日~3日抓取2023年11月1日至2024年10月31日间含关键词“退休 延迟”的微博;<br>
+                经过排重与清洗，排除无关内容以及机构媒体、营销号所发布的内容，仅保留个人账号原创微博，得到6027条微博文本;<br>
+                使用百度AI开放平台进行情感倾向分析，排除情感分析置信度较低的数据，最终获得4113条有效数据。<br>
+            </div>
+          </div>
+
+          <div class="content animate__animated animate__fadeIn wow">
+            <p>
+                <br>
+                自2023年11月退休年龄改革相关的消息传出，到2024年9月全国人大常委会正式发布决定，再到之后一个月人们对此广泛讨论，微博平台显示出人们对于“延迟退休”的情感经历几轮波动。<br><br>
+                随着讨论量的大幅增长，微博讨论积极和消极的情感累积均有上升，其中消极情感的增幅远大于积极情感。总体而言，在微博关于退休年龄改革的讨论中，人们的负面情绪大幅度上涨，讨论呈现越来越悲观的趋势。<br><br>
+                延迟退休政策文件出台当天，“渐进式延迟法定退休年龄明年起施行”“延迟法定退休年龄改革”“延迟退休年龄对照表”等相关话题冲上微博热搜。在话题下的讨论中，有人担忧，有人期待，有人计算自己和家人的退休年龄，有人开始重新规划自己的职业生涯……新的政策把不同年龄、岗位、性别的人们带到了一个职业的十字路口，人们步履匆匆，奔向不同的方向。<br><br>
+                这里站着各个行业的人们，他们或许是教师、学生、工程师、经理、柜员、会计，都在职业道路上往来穿梭。在这里，有人焦虑，有人期待，有人迷茫。他们站在各自的职业十字路口，对延迟退休有着截然不同的看法。有的人担心这会打乱他们的退休计划，有人希望年轻人能拥有更多工作机会，有人看到了继续工作、提升退休金、促进社会公平的机会。<br><br>
+                <span>鼠标移动到不同人上，可以查看他们的心声</span><br><br>
+            </p>
+          </div>
+
+          <div class="content animate__animated animate__fadeIn wow" ></div>
+          <div class="chart"><p> 走到职业的十字路口</p></div>
+          <div class="content_n" style="display: flex; justify-content: center; align-items: center; margin: 0; padding: 0; width: 100%;">
+            <iframe src="crossroads.html" id="crossroads" style="width: 100vh; height: 57vh; border: none; margin: 20px 0;"></iframe>
+          </div>
+          <div class="note" style="margin-top: 0;">
+            数据来源：访谈、问卷、微博文本<br>
+            创作团队根据4113条微博文本、30份问卷回收文本以及4次深度访谈文本，清洗筛选得到的典型人物及故事。</div>
+          </div>
+        </div>
+
+
+          <div class="content animate__animated animate__fadeIn wow">
+            <p>
+                <br>
+                小妍心想：世界上其他国家的打工人们，是否面临着和我一样的困境？在全球化的今天，不同国家的老龄化问题虽各有不同，但都面临着类似的挑战。许多国家在应对人口老龄化和延迟退休政策的过程中，采取了不同的路径。<br><br>
+                放眼全球，<a href="#trend" style="text-decoration: none;color: inherit;"><span>“世界正在变老”</span></a>的事实暗示着处于人口转型期的我们都面临着不同程度的老龄化困境。锐减的出生率和不断延长的寿命推动着国家年龄缓慢而稳定地增长着……根据联合国的统计数据，全球老龄化的速度在加快，这对于社会福利体系和劳动力市场带来了前所未有的压力。延迟退休不仅是中国的议题，它已经成为全球许多国家必须面对的现实。<br><br>
+                回头看，如果将世界各国的老龄化程度比作一把尺子，中国该站在尺子的哪一个刻度上呢？在这变动频发的76年里，中国的退休政策又经历了多少轮的<a href="#action" style="text-decoration: none;color: inherit;"><span>“调整与变革”</span></a>呢？从1951年出台的最初退休年龄规定，到近些年关于延迟退休的各种讨论和试行，退休政策的每次变化都与国家的经济发展、社会福利、人口结构变化密切相关。
+                中国作为世界上人口最多的国家，其老龄化问题更加复杂，如何平衡老龄化带来的社会压力与劳动力市场的供需矛盾，成为了政策制定者不断面临的挑战。<br><br>
+                时代催促着创新举措与政策改良。处于时代齿轮上的我们，又能从世界的其他邻居那学习到什么呢？或许，未来的我们，需要关注的<a href="#recommend" style="text-decoration: none;color: inherit;"><span>“不只延迟退休”</span></a>。如何在全球老龄化的大背景下，实现更加公平、可持续的退休保障体系，是全人类需要思考的问题……<br><br><br><br>
+            </p>
+          </div>
+    </div>
+        <!-- chapter1_intro结束 -->
+    </div>
+    <!-- 导航条+封面+引言结束-->
+
+        <!-- chapter2_world_世界正在变老：焦虑蔓延 -->
+<div id="trend" class="part">
+    
+    <div class="chapter-cover chapter-cover2" id="chapter-cover2">
+        <img src="images/up1.png" class="fengeshang" alt="" />
+        <img src="images/down2.png" class="fengexia" alt="" />
+      </div>
+      
+          <div class="content animate__animated animate__fadeIn wow">
+            <p>
+                <br><br><br><br>
+                对于延迟退休的看法，在8000多公里外的法国传来了回音。<br><br>
+                2023年1月，法国官方公布了备受各界关注的退休制度改革法案，计划从2023年9月开始，法定退休年龄将每年延迟3个月。最终目标是到2030年，法定退休年龄从目前的62岁延迟至64岁。欧洲多国也未能幸免，意大利、德国的老年人口比例持续攀升，一些小城镇甚至出现了"老年人占多数"的现象。<br><br>
+                退休制度改革方案的出台随即在法国社会引发震动。<br><br>
+                24岁的狱警马克西姆说，推迟退休年龄是“不合理的”。“当狱警是一项累人的工作，在监狱我们面对年轻、暴力的囚犯，60岁以后就不可能做到这一点。”<br><br>
+                “我不想再把我所有的生命都投入到工作中。我的祖父曾经对我说，你不应该浪费你的一生来谋生。” 45岁的护士乔安娜说。<br><br>
+                同样面对延迟退休政策，新加坡民众却整体表现出与法国民众截然不同的态度。2022年以来，新加坡的法定退休年龄经历几次调整，现计划到2030年提升至65岁。2023年的一项调查结果显示，约九成新加坡民众支持延迟退休。<br><br>
+                77岁的洪坤芳在62岁那年加入本地机器部件生产商Igus，成为货仓管理员。当时他身旁的许多朋友都已经退休了。“不工作不等同于享福，每天在家没事做才无聊。生活应该过得充实，工作可以接触到不同事物，保持视野开阔、身心愉快。”<br><br>
+                延迟退休政策在各国的相继出台，不可忽视的大背景是人口老龄化对经济社会发展造成的持续影响。那么，世界人口老龄化的演进趋势是怎样的？中国的老龄化程度在其中又处于什么位置？<span>我们综合了世界银行、联合国经济和社会部的数据和报告，对206个国家60年来的老龄化情况进行了深度分析</span>。<br><br>
+            </p>
+          </div>
+              
+    <!-- 连续图 -->
+    <!-- 这里我调了一下位置，让它垂直居中 -->
+   <main>
+    <section id="scrolly">
+        <figure style="height: 100vh; display: flex; align-items: center; margin-top: 20px;">
+           <iframe src='https://flo.uri.sh/story/2717466/embed' title='Interactive or visual content' 
+                class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:800px;top: 20px;' 
+                sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'>
+            </iframe>
+        
+        </figure>
+        <article>
+            <!-- 1960地图 -->
+            <div class="step invisible"></div> 
+            <div class="step">
+                <br>
+                <p>1960年，全世界65岁及以上人口占比为4.97%，206个国家中仅有40个步入老龄化社会（65岁以上人口占比达到7%），多为集中在西欧、北美、大洋洲的发达国家，世界<span>总体处于朝气蓬勃的“青年期”</span>。</p>
+                <p style="color:#888888;font-size: 0.8em;">（注：鼠标悬停可查看具体国家的老龄化人口比例）</p><br>
+            </div>
+            <!-- 2000地图 -->
+             <div class="step invisible"></div>
+            <div class="step">
+                <p>到2000年，世界老龄化人口占比为6.89%，<span>40年间仅增长了1.92%</span>，新增国家主要分布在<span>中东欧和南美洲南部</span>，全球在世纪之交正缓慢进入“中老年期”。而值得注意的是，亚洲的日本自1969年步入老龄化社会后，其老龄化程度迅速加深，已超过西欧、北美多国，并处于深度老龄化阶段（65岁以上人口占比达到14%）。</p>
+                
+            </div>
+            <!-- 2019地图 -->
+            <div class="step invisible"></div>
+            <div class="step">
+                <p style="margin-top: 2px;">到2019年，世界老龄化人口占比已达到9%，仅仅<span>不到20年间就“衰老”了2.11%</span>。全球已有近100个国家达到老龄化社会标准，其中14个国家步入超级老龄化社会（65岁以上人口占比达到20%），40个国家处于深度老龄化阶段。<span>60年来，世界“成长”的速度在不断加快</span>。
+                </p>
+            </div>
+            <!-- 二分人口类型 -->
+            <div class="step invisible"></div>
+            <div class="step">
+                <p>
+                    为了进一步分析，我们汇总了这<span>206个国家</span>最新的老龄化情况，截止2023年，<span>人口老年型国家（共110个）已经多于人口年轻型国家（共96个）</span>。</p>
+                   <p style="color:#888888;font-size: 0.8em;">（注：绿色代表年轻型国家，蓝色代表年老型国家，其中，根据联合国对老龄人口的定义划分，65岁人口比例超过7%、14%、20%的国家，可以分别定义为老龄化、深度老龄化和超级老龄化社会）</p><br>
+            </div>
+            <!-- 四份老龄程度 -->
+            <div class="step invisible"></div>
+            <div class="step">
+                <br>
+                <p>“银发浪潮”来袭，人口老龄化大幕正在落下，但<span>各个国家/地区受影响的程度存在很大差异</span>。具体而言，包括人口大国印度在内的50个国家已步入老龄化社会，瑞士、美国、中国等32个国家处于深度老龄化阶段，摩纳哥、日本、芬兰等28个国家则已步入超级老龄化社会。</p>
+                
+            </div>
+            <!-- 地理位置 -->
+            <div class="step invisible"></div>
+            <div class="step">
+                <br>
+                <p>从地理位置来看，欧洲是最早开始“变老”的地区，也是目前人口情况最严重的地区———<span>所有国家已经全部步入老龄化阶段</span>。此外，美洲的年老型国家也已经略多于年轻型国家，<span>中国所处的亚洲紧随其后</span>。与此相比，非洲绝大部分国家仍处于年轻型状态。</p>
+            </div>
+            <!-- 收入 -->
+            <div class="step invisible"></div>
+            <div class="step">
+                <br>
+                <p><span>不同的经济情况，老龄化也有差别</span>，中高等收入和高收入国家多已步入老龄化社会，而大部分低收入和中低等收入国家仍属于年轻型国家。</p>
+                <p style="color:#888888;font-size: 0.8em;">（注：世界银行把全世界经济体划分为四个收入组别，其中巴勒斯坦和委内瑞拉暂无数据）</p><br>
+            </div>
+            <!-- 散点 -->
+            <div class="step invisible"></div>
+            <div class="step">
+                <p>根据联合国发布的世界人口报告，<span>预期寿命延长和终生生育率降低</span>是推动 "人口结构转型 "的关键因素，206个国家的具体情况也显示，生育率越低、人口寿命越高的国家，老龄化情况往往越严重。值得注意的是，不仅仅是老龄化国家，<span>整个世界都存在低生育率和高人口寿命的分布趋势</span>。
+                </p>
+            </div>
+            <div class="step invisible"></div>
+            <div class="step invisible"></div>
+        </article>
+    </section>
+    </main>
+    <!-- 连续图结束 -->
+
+    <div class="content animate__animated animate__fadeIn wow">
+        <p>
+            事实上，人口焦虑正在全球蔓延。<br><br>
+            60年来，时间的沙漏缓缓倾泻，却揭示出一个不可逆转的趋势——全球人口老龄化的加速演进。这不仅是数字的增长，更是一场深刻的社会变革，世界的面貌将由此被重塑。“银发浪潮”之下，各国都不同程度地被人口焦虑情绪裹挟。<br><br><br><br>
+            
+        </p>
+      </div>
+</div>
+         
+        
+        <!-- chapter3_china_过去与现在：中国改革 -->
+        <div id="action" class="part">
+            <div class="chapter-cover chapter-cover3" id="chapter-cover3">
+                <img src="images/up1.png" class="fengeshang" alt="" />
+                <img src="images/down2.png" class="fengexia" alt="" />
+            </div>
+           
+            <div class="content animate__animated animate__fadeIn wow">
+                <p>
+                    <br><br><br><br>
+                    在人口焦虑情绪全球蔓延的背景下，中国的人口结构也在悄然发生变化。随着老龄化程度的不断加深，<span>绝大部分省市自治区的劳动力人口占比在过去近20年间呈下降趋势。</span><br><br>
+                </p>
+                <div class="chart">
+                    <p>
+                        大部分地区的劳动力人口比例呈下降趋势
+                    </p> 
+                </div>
+                    <iframe src='https://flo.uri.sh/visualisation/20738157/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:350px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+               
+                <div class="note">
+                    <p>
+                        数据来源：国家统计局历年全国抽样数据<br>
+                        其中2005年、2015年为1%人口抽样调查样本数据，其他年份为1‰人口变动调查样本数据。<br>
+                        劳动人口指抽样调查中，年龄在15-59岁的人口数量
+                    </p>
+
+                </div> 
+                <p>
+                    <br><br>
+                    人口是生产力和消费力的源泉，劳动力人口占比下降对经济增长造成负面影响是所有经济体无法避免的客观规律。数据显示，2010年以来，中国劳动人口增速与GDP增速的同步性越来越强，我国15-64岁人口增速由2010年的2.52%下降至2022年的-0.25%，同期GDP增速也由10.64%下降至3%。<br><br>
+                    与人口老龄化程度加深和劳动力人口占比下降的大趋势相伴随的，是<span>中国各省市自治区老年抚养比的上升</span>。在老龄化率最高的东北、上海和川渝地区，每100名15-64岁劳动年龄人口要负担的65岁及以上的老年人在近20年间平均增加了13名，这不仅意味着家庭和个人需要承担更多的养老责任，客观上也增加了社会保障体系的压力。<br><br>
+                </p>
+            
+            
+                <div class="chart">
+                    <p>
+                    东北、上海和川渝老年抚养压力最重
+                    </p>
+                </div>
+                <div class="photo" style="margin-bottom: 0;"><img src="images/dependency.png" width="100%" style="box-shadow: none;"></div>
+                <div class="note" style="margin-top:0%;">
+                    <p>
+                    数据来源：中国统计年鉴《2024》、中国统计年鉴《2006》<br>
+                    其中老年抚养比是指每100名15-64岁的劳动年龄人口要负担多少名65岁及以上的老年人;<br>
+                    老龄化率即65岁以上人口占比;暂不含港澳台数据。<br>
+                    </p>
+                </div>
+            </div>
+
+            <div class="content animate__animated animate__fadeIn wow">
+                <p>
+                    <br><br>
+                    《老后两代破产》一书描述了日本社会的现象，讲到有一种破产是因为子女要照顾父母而辞去工作，全家依靠父母的退休金生活几年甚至十几年。<br><br>
+                    “我感觉我就是这种破产的高危人群。”40岁独生女阿邱说。<br><br>
+                    谈到养老，阿邱认为，自己能做的只是尽量预防或者推迟爸妈得老年痴呆症的时间，起码能像姥姥和奶奶一样等到子女退休再发病。<br><br>
+                    “我和他们住在一起，吃什么、放多少油盐等等，尽量关注得更细致”，阿邱说，“另外就是让我爸妈一直动脑筋，大脑尽可能多地处理复杂信息，不跟社会脱钩。我信奉工作才有生命活力，才能抵抗衰老，也没把爸妈当老人呵护。”<br><br>
+                    为了应对人口结构变化带来的经济社会影响，中国适时调整法定退休年龄并不断完善养老保障措施。我们搜集了新中国成立以来的退休制度和养老保障政策文本，对其进行阶段性分析，从纵向层面体会中国政策的变化情况。<br><br>
+                </p>
+            </div>
+
+
+            <!-- 这里是那个微博的组件，因为这个地方比较干净没有任何样式，就随手放在这里了。 -->
+        
+            <div class="chart">
+                <p>
+                    建国以来，中国的退休政策变化温和
+                </p>
+            </div>
+        <div id="weibo-container"></div>
+            <div id="policy_lines" style="width: 80%; height: 700px; margin: 0 auto;margin-top: -40px;"></div>
+            <div class="note">
+                <p>
+                    将建国以来19篇提及退休政策的政策文本依条款切片并格式化，<br>
+                    使用qwen2-7b-instruct模型部署GraphRAG分析，抽取关系，构建图谱，经人工筛选清洗形成政策演变链条。
+                </p>
+            </div>
+            <div class="content animate__animated animate__fadeIn wow">
+                
+                <p>
+                    <br>
+                    2024年渐进式延迟退休政策公布前，除了井下、高空、高温、特别繁重体力劳动等国家规定的特殊工种，其他行业采取的均为工人退休年龄男60岁女50岁，职工退休年龄男60岁女55岁的规定。<br><br>
+                    <span>这一上世纪50年代确立的法定退休年龄立足于当时中国人口结构年轻化、平均寿命较短的社会现实，却难以满足如今人口老龄化加速背景下的经济社会可持续发展需求</span>。<br><br>
+                    此外，随着教育水平的提高和职业结构的变迁，过去以体力劳动为主的工作岗位逐渐减少，脑力劳动和服务业岗位大量增加，人们的身体健康状况客观上能支持更长的工作年限。<br><br>
+                    退休政策的调整，正是对这种现实变迁的回应。并且，<span>此次调整并非一蹴而就，而是采取了温和渐进的方式，给予社会足够的适应期</span>。<br><br>
+                    与退休政策配套的养老保险制度在过去几十年间均在动态变化，目前已确立起养老金体系三大支柱——基本养老保险、补充养老保险和个人养老金。渐进式延迟退休政策公布的同时，政府也对完善养老保险激励机制和健全养老服务体系作出了指导意见，如鼓励职工多缴多得、建设医养康养机构等。<br><br><br><br>
+                </p>
+            </div>
+           
+        </div>
+
+        <!-- chapter4_action_不止延迟退休：各国举措 -->
+        <div id="recommend" class="part">
+            <div class="chapter-cover chapter-cover4" id="chapter-cover4">
+                <img src="images/up1.png" class="fengeshang" alt="" />
+                <img src="images/down2.png" class="fengexia" alt="" />
+            </div>
+                
+                <div class="content animate__animated animate__fadeIn wow">
+                    <p>
+                        <br><br><br><br>
+                        放眼全球，世界各国都在探索应对人口老龄化的措施。从横向层面来看，中国的延迟退休政策是否同样呈现温和的过渡特征？养老保障措施的可持续性又如何呢？我们选取了联合国人口司列出的老龄化程度比中国严重的十个国家，将其法定退休年龄和养老金制度与中国进行对比，期望从中有所发现。<br><br>
+                        延迟退休政策公布前，职工退休年龄男60岁女55岁的规定均低于俄罗斯、新加坡、韩国等老龄化程度比中国严重的十个国家。其中，中国女职工的法定退休年龄甚至比刚刚步入老龄化社会的印度尼西亚的法定退休年龄还低。<span>从积极应对人口老龄化的角度出发，中国的法定退休年龄存在上调空间</span>。<br><br>
+                    </p>
+                    <div class="chart">
+                        <p>
+                        深度老龄化国家中，法定退休年龄普遍高于中国
+                        </p>
+                    </div>
+                    <div class="photo" style="margin-bottom: 0;"><img src="images/age.png" width="100%" style="box-shadow: none;"></div>
+                    <div class="note" style="margin-top:0%;">
+                        <p>
+                        数据来源：世界经济合作与发展组织、全球金融网站lnvestopedia、各国政策文件<br>
+                        各国法律不同，法定退休年龄在这里表示参与工作后可以(无损失地)领取养老金的年龄<br>
+                        国家选取标准为联合国人口司所列出的比中国老龄化严重的前十个国家与世界经合组织中法定退休年龄低于中国的国家<br>
+                        </p>
+                    </div>
+                    <p>
+                    <br>
+                    延迟退休政策公布后，中国男干部和女干部的法定退休年龄将分别渐进延长至63岁和58岁。对于男职工而言，新法定退休年龄与新加坡持平，略高于韩国和意大利，但仍低于其余七个老龄化程度比中国严重的国家。从女职工的视角来看，新法定退休年龄均显著低于参照国家的现有规定，与尚未步入深度老龄化社会的印度持平。<br><br>
+                    据预测，中国将于2035年之前步入超级老龄化社会，大致相当于如今法国和德国的老龄化程度。按照新规的渐进延迟标准，截至2034年12月，中国男职工和女职工的最高法定退休年龄分别是62岁和57岁，与目前法德两国的规定相比仍有一定距离。<br><br>
+                    横向对比可见，<span>中国最新的延迟退休政策仍属于温和的制度设计</span>。<br><br>
+                    除了动态调整法定退休年龄，老龄化程度较高的国家均设计了适应各自国情的养老金制度。我们从官方文件中整理出中国及十个老龄化程度位居其上的国家的养老金制度设计，以文本框的形式予以呈现。<br><br>
+                    </p>
+                   
+                      <iframe src='https://flo.uri.sh/visualisation/20672468/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:650px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>  
+                    </div>
+                
+                <div class="content animate__animated animate__fadeIn wow">
+                    <p>
+                        <br>
+                        为了准确评价各国养老金制度，我们参照美世（Mercer）咨询和特许金融分析师协会联合发布的《2024年全球养老金指数》，对中国及八个参照国家的养老金制度进行量化评估。<br><br>
+                        报告中的总分由三个维度的评分加权产生，分别评估一国养老金制度的充足性、可持续性和完整性。中国的总分为56.5分，在九个国家中位居第六，可见其养老金制度设计仍有较大的完善空间。<br><br>
+
+                    </p>
+                   
+                        <div class="chart">
+                            <p>
+                                中外养老金对比，可持续性仍不及大多发达国家
+                            </p>
+                        </div>
+                        
+                        <div class="charts-container">
+                            <div class="container1">
+                            <img src="images/pension_before.png" alt="Image 1" id="shangceng" />
+                            <img src="images/pension.png" alt="Image 2" id="xiaceng" />
+                            </div>
+                            <div class="placeholder" style="opacity: 0">
+                              <p>第零条</p>
+                          </div>
+                            <div class="placeholder" style="opacity: 0">
+                                <p>第一条</p>
+                            </div>
+                            <div class="placeholder" style="opacity: 0">
+                                <p id="section2">滑到第二条变图</p>
+                            </div>
+                            <div class="placeholder" style="opacity: 0;margin-bottom: 600px;">
+                                <p id="section3">第三条</p>
+                            </div>
+                        </div>
+                </div>
+                        
+                        <div class="content animate__animated animate__fadeIn wow">
+                            <div class="note" style="margin-top: 0%;">
+                                <p>
+                                  <br><br><br><br>
+                                    数据来源:Mercer、CFA institute联合发布《2024年全球养老金指数》，<br>
+                                    其中充足性由补助金、政府支持、系统设计等指标衡量;可持续性由公共支出、总资产、人口等指标衡量<br>
+                                    完整性由法规、治理、运作成本等指标衡量<br>
+                                    总分=充足性*40%+可持续性*35%+完整性*25%，摩纳哥和俄罗斯数据缺失。<br>
+            
+                                </p>
+                            </div>
+                            </div>
+                <div class="content animate__animated animate__fadeIn wow">
+                    <p>
+                    <br>
+                    在充足性维度上，法国基于国家保障与强制补充的综合养老金制度获得84.8最高分。强制性补充养老基金由行业机构管理，费率根据个人职业生涯的累积积分计算，雇主和雇员均需缴纳，最终的补充养老金金额则通常根据整个职业生涯的平均工资计算。这一制度设计在国家养老金的基础上为法国人民的退休生活添加了另一重保障。<br><br>
+                    在可持续性维度上，获得74.3最高分的新加坡采取的是中央公积金与自愿储蓄结合的灵活制度。值得注意的是，该设计同时获得78.7的最高总分。新加坡的补充退休储蓄计划（SRS）属于自愿性质，允许公民和永久居民在中央公积金的基础上进行额外的退休储蓄，存入SRS的资金能替代当年的部分税收。退休后通过SRS提取的资金同样可享受税收优惠。<br><br>
+                    在完整性维度上，芬兰以90.8分高居榜首。该国的养老金按17岁起年总收入1.5%的比率累积，直至保险义务终止的年龄。芬兰为居民设置的最低养老金是每月976.59欧元，<span>如果基于一般计算方式获得的国家养老金低于此金额，则以保障养老金的形式支付差额，从而让全体居民均能过上体面的退休生活</span>。<br><br>
+                    综览中国三个维度的得分，<span>可持续性分数显著低于其他两个维度</span>，其原因可从中国养老金体系三大支柱的内在问题中窥见一二。<br><br>
+                    目前，中国养老金体系的第一支柱——基本养老保险（包括城镇职工基本养老保险和城乡居民基本养老保险）实现了对法定人群的制度全覆盖，<span>但内部待遇水平差距较大，且在人口老龄化背景下收支矛盾逐渐突出</span>。<br><br>
+                    第二支柱补充养老保险（包括企业年金和职业年金）因<span>税惠政策力度偏弱和投资回报率偏低而存在设立动力不足的问题</span>。<br><br>
+                    第三支柱个人养老金（包括个人储蓄性养老保险和商业养老保险）与企业年金类似，采用封闭账户运营，无法提前支取，<span>难以满足参与者的流动性偏好</span>。该支柱于2022年11月25日正式实施，制度设计仍需优化。<br><br>
+                    从海外经验来看，<span>进一步优化税惠政策和提高标准线以下群体的最低生活保障</span>将成为中国养老金体系的优化方向。<br><br>
+                    </p>  
+        </div>
+
+
+        <br><br><br><br>
+        <hr class="hr-edge-weak">
+        <br><br><br><br><br>
+
+
+         <!-- chapter5_end -->
+    
+         <div id="methods" class="part">
+           
+                <div class="content animate__animated animate__fadeIn wow" style="text-align: center;">
+                <p>
+                    回望过去，纵览全球，在完成了对时间维度与空间维度的退休政策分析后，我们更加明白：<br><br>
+                    <span>应对老龄化，从来都不只是“延迟退休”</span>。<br><br>
+                    民众的期待与声音，是未来需要得到重视的一环。<br><br>
+                    二十年前，祖父母辈所期待的退休，是一份报纸一杯茶。<br><br>
+                    现在，父母辈所期待的退休，是低负担的社保缴纳和有保障的第二人生。<br><br>
+                    未来，我们所期待的退休，是……<br><br><br>
+                    <div style="font-family: 'nansong';">
+                    <i>椰子（化名）：提高养老金，优化养老设施和服务，实现真正的老有所养。</i><br>
+                    <i>小桥（化名）：让我早点退休，带着退休金去旅游吧～</i><br>
+                    <i>柯南图（网名）：多攒个三瓜俩枣的吧。村里有地的，记得多学习下怎么种红薯。退休了可以回村养老。</i><br>
+                    <i>小鱿鱼（化名）：我希望可以弹性退休，在一定时间范围内自主决定退休的时间。</i><br>
+                    <i>七分糖奶茶（网名）：当下保重身体，健康生活才是最重要的，活得长、活得健康才是退休后最大的靠山。</i><br><br><br>
+                    </div>
+                    站在不同的鞋子里，我们或许能看到不同的期待与愿望。<br><br>
+                    在对社会民生话题的讨论中，你我的声音都值得尊重。<br><br>
+                    随着社会对养老服务、医疗保障以及退休生活质量的不断重视，<br><br>
+                    我们有理由相信，未来的退休生活将更加多样、自由和有意义。<br><br>
+                    未来，我们真正期待的是：<br><br>
+                    更合理的退休方式<br><br>
+                    更加完善的社会支持<br><br>
+                    以及每个人都能实现的幸福晚年。<br><br>
+
+
+
+                    </p>
+                </div>           
+        
+
+
+
+  <section id="sectiontwo" class="screen">
+    <div id="byebye">
+     <div data-depth="0.25" class="audience">
+      <img src="images/2.png" alt="" />
+     </div>
+     <div data-depth="0.45" class="audience">
+      <img src="images/1.png" alt="" />
+      </div>
+   </div>
+ </section>
+         
+       <div class="byebye_end">
+        <div class="content ">
+            
+            <p style="color: #ffffff; text-align: center; line-height: 2;">
+                <br><br><br><br><br><br>
+                数据挖掘与分析：侯天泽、张元英、杜颖、方扬、周婧欣<br>
+                文案与采访：杜颖、张元英、周婧欣<br>
+                可视化：方扬、侯天泽<br>
+                网页：方扬、侯天泽<br>
+                职业十字路口设计：周婧欣<br>
+                （以上排名不分先后）<br>
+                <a href="https://jtct2fqk8g.feishu.cn/docx/CuzVd7xf7oG65ox8bnucMXMSnVd" style="color: aliceblue; text-decoration: underline;">点击下载本作品的所有数据挖掘与处理细节</a><br><br><br>
+                &copy;复旦大学 &middot; 新闻学院  2024
+            </p>
+       </div>
+
+       <div>
+
+
+       </div>
+</div>
+</div>
+
+
+   
+
+
+
+
+
+
+
+
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/parallax.min.js"></script>
+<script src="js/ScrollMagic.min.js"></script>
+<script src="js/debug.addIndicators.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/swiper.animate.min.js"></script>
+<script src="js/swipertrigger.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+<script src="https://unpkg.com/scrollama"></script>
+<script src="js/d3.min.js" language="javascript"></script>
+<script src="js/wow.min.js"></script>
+<script src="https://public.flourish.studio/resources/embed.js"></script>
+<script src="js/timeline.min.js"></script>
+<script src="js/preloader.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/fix-scroll.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.js"></script>
+<script src="js/myscroll.js"></script>
+<script src="js/swiper-bundle.min.js"></script>
+<script src="js/byebye.js"></script>
+<script src="js/sent.js"></script>
+<script src="js/weibo_gender_geo_dist.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', initWeiboDistCharts);
+    </script>
+
+<!-- 导航栏效果js -->
+<script>
+    // 获取所有的导航按钮、标签和页面内容区域  
+    var buttons = document.querySelectorAll('.sectionBox');
+    var labels = document.querySelectorAll('.label');
+    var sections = document.querySelectorAll('.part');
+
+    // 为每个按钮添加点击事件监听器  
+    buttons.forEach(function (button) {
+      button.addEventListener('click', function (e) {
+        e.preventDefault(); // 阻止默认行为  
+
+        // 移除所有按钮和标签的active类  
+        buttons.forEach(function (btn) {
+          btn.classList.remove('active');
+        });
+        labels.forEach(function (lbl) {
+          lbl.classList.remove('active');
+        });
+
+        // 添加active类到当前点击的按钮和对应的标签  
+        this.classList.add('active');
+        var targetLabel = this.getAttribute('data-target');
+        document.querySelector(targetLabel).classList.add('active');
+
+
+        // 滚动到对应的内容区域  
+        var targetSection = document.querySelector(this.getAttribute('data-target'));
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // 设置滚动事件监听器  
+    window.addEventListener('scroll', function () {
+      // 遍历所有导航按钮和标签  
+      buttons.forEach(function (button, index) {
+        var section = sections[index];
+
+        // 检查用户是否滚动到了对应的内容部分  
+        if (section && isScrolledIntoView(section)) {
+          // 移除所有按钮和标签的active类  
+          buttons.forEach(function (btn) {
+            btn.classList.remove('active');
+          });
+          labels.forEach(function (lbl) {
+            lbl.classList.remove('active');
+          });
+
+          // 添加active类到当前按钮和标签  
+          button.classList.add('active');
+          labels[index].classList.add('active');
+        }
+      });
+    });
+    // 检查元素是否在视口中  
+    function isScrolledIntoView(elem) {
+      var docViewTop = window.pageYOffset || document.documentElement.scrollTop;
+      var docViewBottom = docViewTop + window.innerHeight;
+
+      var elemTop = elem.getBoundingClientRect().top + docViewTop; // 元素顶部相对于文档顶部的距离
+      var elemBottom = elemTop + elem.getBoundingClientRect().height;
+
+      return elemTop < docViewBottom && elemBottom > docViewTop;
+    }
+
+</script> 
+
+
+
+<!-- 导航栏效果js 结束-->
+
+<!-- 封面小按钮效果js -->
+<script>
+    document.getElementById("scrollButton").addEventListener("click", function () {
+      window.scrollBy({
+        top: window.innerHeight, // Scroll one screen height
+        behavior: 'smooth' // Smooth scroll behavior
+      });
+    });
+  </script>
+<!-- 封面小按钮效果js 结束-->
+
+<!-- 保持原有的 WOW 初始化 -->
+<script>
+    new WOW().init();
+</script>
+
+<script>
+    // using d3 for convenience
+    var main = d3.select("main");
+    var scrolly = main.select("#scrolly");
+    var figure = scrolly.select("figure");
+    var article = scrolly.select("article");
+    var step = article.selectAll(".step");
+
+    // initialize the scrollama
+    var scroller = scrollama();
+
+    // generic window resize listener event
+    function handleResize() {
+        // 1. update height of step elements
+        var stepH = Math.floor(window.innerHeight * 1);
+
+        step.style("height", 330 + "px");
+
+        var figureHeight = window.innerHeight;
+        var figureMarginTop = (window.innerHeight - figureHeight);
+
+        figure
+            .style("height", figureHeight + "px")
+            .style("top", 0 + "px");
+
+        // 3. tell scrollama to update new element dimensions
+        scroller.resize();
+    }
+
+    // scrollama event handlers
+    function handleStepEnter(response) {
+        console.log(response);
+        // response = { element, direction, index }
+
+        // add color to current step only
+        step.classed("is-active", function (d, i) {
+            return i === response.index;
+        });
+
+
+
+        // update graphic based on step
+        figure.select("p").text(response.index + 1);
+
+        //   figure.select("iframe").attr("src", function (d) {
+        //     return (
+        //       "https://flo.uri.sh/story/1911968/embed#slide-" + response.index
+
+        //     );
+        //   });
+
+        var iframe = document.querySelector("#scrolly iframe");
+        iframe.src = iframe.src.replace(/#slide-.*/, "") + "#slide-" + response.index;
+    }
+
+    function setupStickyfill() {
+        d3.selectAll(".sticky").each(function () {
+            Stickyfill.add(this);
+        });
+    }
+
+    function init() {
+        setupStickyfill();
+
+        // 1. force a resize on load to ensure proper dimensions are sent to scrollama
+        handleResize();
+
+        // 2. setup the scroller passing options
+        // 		this will also initialize trigger observations
+        // 3. bind scrollama event handlers (this can be chained like below)
+        scroller
+            .setup({
+                step: "#scrolly article .step",
+                offset: 0.05,
+                debug: false,
+            })
+            .onStepEnter(handleStepEnter);
+
+        // setup resize event
+        window.addEventListener("resize", handleResize);
+    }
+
+    // kick things off
+    init();
+</script>
+
+<script>
+    timeline(document.querySelectorAll('#timeline-vertical'), {
+        verticalStartPosition: 'right',
+        verticalTrigger: '150px'
+    });
+</script>
+
+</body>
+<script src="js/policy_lines.js"></script>
+<script src="js/FlyingCards.js"></script>
+<script>
+    // 初始化微博卡片组件
+    document.addEventListener('DOMContentLoaded', function() {
+        const flyingCards = new FlyingCards({
+            container: '#weibo-container',
+            triggerElement: '#trigger-area'
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,338 @@
+/* html {
+    min-height: 100%;
+    overflow: hidden;
+}
+
+body {
+    height: 100vh;
+    padding: 4em;
+    color: #ff6f61;
+    background-color: #fcdc29;
+}
+ */
+
+
+
+.line1 {
+    position: relative;
+    /* top: 40%; */
+    border-right: 2px solid #ff6f61;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    /* transform: translateY(-50%); */
+    display: block;
+}
+
+.line2 {
+    position: relative;
+    /* top: 41%; */
+    /* width: 90%; */
+    border-right: 2px solid #ff6f61;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    /* transform: translateY(-50%); */
+    display: block;
+}
+
+.line3 {
+    position: relative;
+    /* top: 42%; */
+    /* width: 90%; */
+    /* border-right: 2px solid #ff6f61; */
+    text-align: left;
+    /* white-space: nowrap; */
+    overflow: hidden;
+    /* transform: translateY(-50%); */
+    display: block;
+}
+
+.line4 {
+    position: relative;
+    /* top: 43%; */
+    /* width: 90%; */
+    /* border-right: 2px solid #ff6f61; */
+    text-align: left;
+    /* white-space: nowrap; */
+    overflow: hidden;
+    /* transform: translateY(-50%); */
+    display: block;
+}
+
+.line5 {
+    position: relative;
+    /* top: 44%; */
+    /* width: 90%; */
+    /* border-right: 2px solid #ff6f61; */
+    text-align: left;
+    /* white-space: nowrap; */
+    overflow: hidden;
+    /* transform: translateY(-50%); */
+    display: block;
+}
+
+.line6 {
+    position: relative;
+    /* top: 45%; */
+    /* width: 90%; */
+    /* border-right: 2px solid #ff6f61; */
+    text-align: left;
+    /* white-space: nowrap; */
+    overflow: hidden;
+    /* transform: translateY(-50%); */
+    display: block;
+}
+
+.line7 {
+    position: relative;
+    /* top: 46%; */
+    /* width: 90%; */
+    /* border-right: 2px solid #ff6f61; */
+    text-align: left;
+    /* white-space: nowrap; */
+    overflow: hidden;
+    /* transform: translateY(-50%); */
+    display: block;
+}
+
+.line8 {
+    position: relative;
+    /* top: 47%; */
+    /* width: 90%; */
+    text-align: left;
+    /* white-space: nowrap; */
+    overflow: hidden;
+    /* transform: translateY(-50%); */
+    display: block;
+}
+
+.line9 {
+    position: relative;
+    /* top: 48%; */
+    /* width: 90%; */
+    text-align: left;
+    /* white-space: nowrap; */
+    overflow: hidden;
+    /* transform: translateY(-50%); */
+    display: block;
+}
+
+/* animattion */
+.welcome1 {
+    visibility: hidden;
+}
+
+.welcome2 {
+    visibility: hidden;
+}
+
+.welcome3 {
+    visibility: hidden;
+}
+
+.welcome4 {
+    visibility: hidden;
+}
+
+.welcome5 {
+    visibility: hidden;
+}
+
+.welcome6 {
+    visibility: hidden;
+}
+
+.welcome7 {
+    visibility: hidden;
+}
+
+.welcome8 {
+    visibility: hidden;
+}
+
+.welcome9 {
+    visibility: hidden;
+}
+
+/* 这个地方设置第一行和第二行的展开宽度 */
+
+@keyframes typeMsg {
+    from {
+        width: 0em;
+    }
+
+    to {
+        /* width: 16%; */
+        width: 300px;
+    }
+}
+
+@keyframes typeMsg2 {
+    from {
+        width: 0em;
+    }
+
+    to {
+        /* width: 35%; */
+        width: 670px;
+    }
+}
+
+@keyframes typeMsg3 {
+    from {
+        width: 0em;
+    }
+
+    to {
+        width: 90%;
+    }
+}
+
+@keyframes cursorAnim {
+    from {
+        border-right-color: #ff6f61;
+    }
+
+    to {
+        border-right-color: transparent;
+    }
+}
+
+.welcome1.play {
+    animation: typeMsg 800ms steps(15) 800ms 1 normal both,
+        hideCursor 1s 2s 1 normal both;
+    visibility: visible;
+    /* 添加新的动画用于隐藏光标 */
+}
+
+.welcome2.play {
+    text-indent: 2em;
+    animation: typeMsg2 800ms steps(15) 2s 1 normal both,
+        hideCursor 1s 4s 1 normal both;
+    visibility: visible;
+}
+
+/* 
+.welcome3.play {
+    text-indent: 2em;
+    animation: typeMsg3 1s steps(15) 3s 1 normal both,
+        cursorAnim 500ms steps(15) normal both;
+    visibility: visible;
+}
+
+.welcome4.play {
+    text-indent: 2em;
+    animation: typeMsg3 1s steps(15) 3s 1 normal both,
+        cursorAnim 500ms steps(15) normal both;
+    visibility: visible;
+}
+
+.welcome5.play {
+    text-indent: 2em;
+    animation: typeMsg3 1s steps(15) 3s 1 normal both,
+        cursorAnim 500ms steps(15) normal both;
+    visibility: visible;
+}
+
+.welcome6.play {
+    text-indent: 2em;
+    animation: typeMsg3 1s steps(15) 3s 1 normal both,
+        cursorAnim 500ms steps(15) normal both;
+    visibility: visible;
+}
+
+.welcome7.play {
+    text-indent: 2em;
+    animation: typeMsg3 1s steps(15) 3s 1 normal both,
+        cursorAnim 500ms steps(15) normal both;
+    visibility: visible;
+}
+
+.welcome8.play {
+    text-indent: 2em;
+    animation: typeMsg3 1s steps(15) 3s 1 normal both,
+        cursorAnim 500ms steps(15) normal both;
+    visibility: visible;
+}
+
+.welcome9.play {
+    text-indent: 2em;
+    animation: typeMsg3 1s steps(15) 3s 1 normal both,
+        cursorAnim 500ms steps(15) normal both;
+    visibility: visible;
+} */
+.welcome3.play {
+    text-indent: 2em;
+    visibility: visible;
+    opacity: 0;
+    /* 设置初始透明度为0 */
+    animation: fadeIn 1s ease-in forwards;
+    /* 使用fadeIn动画使透明度从0到1 */
+}
+
+.welcome4.play {
+    text-indent: 2em;
+    visibility: visible;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+.welcome5.play {
+    text-indent: 2em;
+    visibility: visible;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+.welcome6.play {
+    text-indent: 2em;
+    visibility: visible;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+.welcome7.play {
+    text-indent: 2em;
+    visibility: visible;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+.welcome8.play {
+    text-indent: 2em;
+    visibility: visible;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+.welcome9.play {
+    text-indent: 2em;
+    visibility: visible;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+@keyframes hideCursor {
+    from {
+        border-right-color: #064789;
+    }
+
+    to {
+        border-right-color: transparent;
+        /* 将光标颜色设置为透明 */
+    }
+}

@@ -1,0 +1,91 @@
+#scrolly {
+    position: relative;
+    display: flex;
+    background-color: transparent;
+    padding: 1rem;
+}
+
+article {
+    position: relative;
+    max-width: 20rem;
+    margin: 0 auto;
+    z-index: 2; /* 确保文字在图片上面 */
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* 水平居中 */
+}
+
+@media screen and (max-width: 600px) {
+    article {
+        position: relative;
+        max-width: 100rem;
+        margin-left: 0;
+    }
+}
+
+figure {
+    position: -webkit-sticky;
+    position: sticky;
+    width: 100%;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 水平垂直居中 */
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    -moz-transform: translate3d(-50%, -50%, 0);
+    z-index: 1;
+}
+
+/* 其他 CSS 保持完全不变 */
+
+figure p {
+    text-align: center;
+    padding: 1rem;
+    position: absolute;
+    top: 50%;
+    -moz-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-size: 8rem;
+    font-weight: 900;
+    color: #fff;
+}
+
+.step {
+    font-family: 'zhengwen';
+    margin: 0 auto 2rem auto;
+    color: #000000;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 1.02em;
+    line-height: 180%;
+    padding: 2em;
+    pointer-events: none;
+    box-shadow: 0px 0px 8px 3px #bcbcbc;
+}
+
+@media screen and (max-width: 600px) {
+    .step {
+        line-height: 1.5em;
+        margin: auto;
+        padding: 0.5em;
+        font-size: 0.8em;
+    }
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.step:last-child {
+    margin-bottom: 0;
+}
+
+.step.is-active {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #000000;
+}
+
+.lable {
+    font-family: 'zhengwen';
+}

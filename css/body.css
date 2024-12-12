@@ -1,0 +1,449 @@
+@font-face {
+    font-family: 'nansong';
+    src: url('../fonts/nansong.ttf') format('truetype')
+}
+
+@font-face {
+    font-family: 'zhengwen';
+    src: url('../fonts/zhengwen.otf') format('truetype')
+}
+
+body {
+    background-color: #ffffff;
+    overflow-x: hidden;
+    margin: 0;
+    padding:0;
+}
+
+/* .nav {
+    position: fixed;
+    top: 25%;
+    z-index: 999;
+    left: 0;
+}
+
+@media screen and (max-width: 600px) {
+    .nav {
+        display: none;
+    }
+} */
+
+/* .option {
+    cursor: pointer;
+    position: relative;
+}
+
+.option i {
+    display: block;
+    width: 50px;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    background: #4d4b4b;
+    transition: 0.6s;
+    border-width: 2px;
+    border-style: groove;
+    border-color: #ffffff;
+    border-radius: 10%;
+    box-shadow: 0px 0px 3px 2px #e7dddd7f;
+}
+ */
+
+.text {
+    font-family: 'zhengwen';
+    position: absolute;
+    height: 48px;
+    width: 220px;
+    background: #4d4b4b;
+    top: 0;
+    z-index: -1;
+    left: -250px;
+    color: #ffffff;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #ffffff;
+    line-height: 45px;
+    text-align: center;
+    transition: 0.6s;
+    box-shadow: 0px 0px 3px 2px #e7dddd7f;
+}
+
+.option:hover .text {
+    left: 50px;
+}
+
+.content span,
+.intro-text span 
+.top span, 
+.step span {
+    display: inline;  /* 支持换行 */
+    background: linear-gradient(to right, #15559a 100%, #15559a 100%) 0 100% / 100% 3px no-repeat;
+    padding-bottom: 3px;
+    line-height: 1.4;
+    margin: 0 2px;
+    position: relative;
+    /* 确保 span 在换行时保持正确的定位 */
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+
+/* 特定类下 span 的高亮效果 */
+.content span::before, 
+.top span::before, 
+.step span::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    background-color: #d0dfe680;
+    transition: height 0.3s ease;
+    z-index: -1;
+    /* 确保伪元素在换行时也能正确显示 */
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+
+/* 修改高亮效果的实现方式 */
+.content span:hover, 
+.top span:hover, 
+.step span:hover {
+    background-color: #d0dfe680;
+    transition: background-color 0.3s ease;
+}
+
+/* 移除之前的悬停效果，改用新的实现方式 */
+.content span:hover::before, 
+.top span:hover::before, 
+.step span:hover::before {
+    content: none;
+}
+
+.flourish-embed span {
+    background-color: transparent;
+}
+
+.content {
+    width: 60%;
+    margin: 0 auto;
+    padding: 1% 6%;
+    color: #343434;
+    font-size: 1.05em;
+    line-height: 1.8em;
+}
+
+@media screen and (max-width: 600px) {
+    .content {
+        width: 90%;
+        margin: 0 auto;
+        padding: 1% 6%;
+        color: #343434;
+        font-size: 0.8em;
+        line-height: 1.8em;
+    }
+}
+
+.content p {
+    font-family: 'zhengwen';
+}
+
+.intro-text p {
+    font-family: 'nansong';
+    font-weight: 100;
+    font-size: 16px;
+    line-height: 2em;
+    margin: 0 10% 1.5em 10%;
+  }
+
+.chart {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+
+
+.chart p {
+    display: inline;
+    background: linear-gradient(0deg, #b5cbe4 8%, #b5cbe4 8%);
+    background-position: 0 95%;
+    background-repeat: repeat-x;
+    background-size: 100% 10px;
+    box-decoration-break: clone;
+    font-family: 'nansong';
+  }
+
+@media screen and (max-width: 600px) {
+    .chart {
+        font-family: 'nansong';
+        font-size: 1.2em;
+        text-align: center;
+        line-height: 1.5em;
+    }
+}
+
+#echarts {
+    width: 600px;
+    height: 400px;
+    margin: 10px auto
+}
+
+@media screen and (max-width: 600px) {
+    #echarts {
+        width: 300px;
+        height: 200px;
+        margin: 10px auto
+    }
+}
+
+.note {
+    font-family: 'zhengwen';
+    font-size: 0.5em;
+    color: #888888;
+    text-align: center;
+    line-height: 2em;
+}
+
+@media screen and (max-width: 600px) {
+    .note {
+        font-size: 0.5em;
+    }
+}
+
+.chapter {
+    margin-bottom: 50px;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'nansong';
+    margin-bottom: 30px;
+
+}
+
+.fa-lg {
+    vertical-align: 0% !important;
+}
+
+.photo {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.photo img {
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+}
+
+.box {
+    width: 800px;
+    height: 511px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .box {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .box-mobile {
+        display: none;
+    }
+}
+
+.box p {
+    text-align: center;
+}
+
+.q1 {
+    width: 435px;
+    height: 284px;
+    /* border:solid;
+    border-width: 3px;
+    border-color: #e3e3e3;
+    box-shadow:0px 0px 5px 3px #bcbcbc7f;
+    border-radius: 10px; */
+    float: left;
+    /* color:#343434; */
+    background-image: url(../image/injury.png);
+    background-size: cover;
+}
+
+.q1:hover .title {
+    opacity: 0;
+}
+
+.q2:hover .title {
+    opacity: 0;
+}
+
+.q3:hover .title {
+    opacity: 0;
+}
+
+.q4:hover .title {
+    opacity: 0;
+}
+
+.q5:hover .title {
+    opacity: 0;
+}
+
+.q6:hover .title {
+    opacity: 0;
+}
+
+.q1:hover {
+    background-color: transparent;
+    background-image: url(../image/q1.png);
+    background-size: cover;
+}
+
+.q2 {
+    width: 341px;
+    height: 194px;
+    /* border:solid;
+    border-radius: 10px;
+    border-width: 3px 3px 3px 0;
+    box-shadow:0px 0px 5px 3px #bcbcbc7f;
+    border-color: #e3e3e3; */
+    display: inline-block;
+    /* color:#343434; */
+    transform: translate(2px, 0px);
+    background-image: url(../image/compensation.png);
+    background-size: cover;
+}
+
+.q2:hover {
+    background-color: transparent;
+    background-image: url(../image/q2.png);
+    background-size: cover;
+}
+
+.q5 {
+    width: 435px;
+    height: 230px;
+    float: left;
+    /* border-radius: 10px;
+    border:solid;
+    border-width: 0 3px 3px 3px;
+    box-shadow:0px 0px 5px 3px #bcbcbc7f;
+    border-color: #e3e3e3; */
+    transform: translate(0px, 3px);
+    background-image: url(../image/remuneration.png);
+    background-size: cover;
+}
+
+.q5:hover {
+    background-color: transparent;
+    background-image: url(../image/q5.png);
+    background-size: cover;
+}
+
+.q3 {
+    width: 149px;
+    height: 320px;
+    /* border: solid;
+    border-radius: 10px;
+    border-width: 0 1.5px 3px 0;
+    border-color: #e3e3e3;
+    box-shadow:0px 2px 5px 3px #bcbcbc7f; */
+    display: inline-block;
+    transform: translate(3px, -2px);
+    background-image: url(../image/invalid.png);
+    background-size: cover;
+}
+
+.q3:hover {
+    background-color: transparent;
+    background-image: url(../image/q3.png);
+    background-size: cover;
+}
+
+.q4 {
+    width: 189px;
+    height: 195px;
+    /* border:solid;
+    border-radius: 10px;
+    border-width: 0 3px 3px 1.5px;
+    border-color: #e3e3e3;
+    box-shadow:0px 0px 5px 2px #bcbcbc7f; */
+    display: inline-block;
+    transform: translate(0px, -127px);
+    background-image: url(../image/insurance.png);
+    background-size: cover;
+}
+
+.q4:hover {
+    background-color: transparent;
+    background-image: url(../image/q4.png);
+    background-size: cover;
+}
+
+.q6 {
+    width: 189px;
+    height: 122px;
+    /* border-radius: 10px; */
+    /* border:solid;
+    border-width: 0 3px 3px 1.5px;
+    border-color: #e3e3e3;
+    box-shadow:0px 0px 5px 2px #bcbcbc7f; */
+    transform: translate(590px, -130px);
+    background-image: url(../image/accident.png);
+    background-size: cover;
+}
+
+.q6:hover {
+    background-color: transparent;
+    background-image: url(../image/q6.png);
+    background-size: cover;
+}
+
+.people {
+    width: 80%;
+    margin: auto 8% auto 13%;
+}
+
+@media screen and (max-width: 600px) {
+    .nopeople {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .people-mobile {
+        display: none;
+    }
+}
+
+.policy1 {
+    margin-left: 80px;
+    margin-bottom: 50px;
+}
+
+.ending {
+    font-family: 'qianyan';
+    margin: 150px 50px;
+    color: #343434;
+    font-size: 25px;
+    text-align: center;
+}
+
+.ending p {
+    margin: auto;
+}
+
+.team {
+    text-align: center;
+    color: #343434;
+    line-height: 2em;
+    font-size: 1.05em;
+}

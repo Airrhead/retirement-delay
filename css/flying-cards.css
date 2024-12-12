@@ -1,0 +1,201 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+.content {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.trigger-area {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 800px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    font-family: 'nansong';
+}
+
+.trigger-area:hover {
+    border-color: #4d70a7;
+    color: #4d70a7;
+    background-color: rgba(29, 161, 242, 0.05);
+}
+
+#weibo-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1000;
+    perspective: 1000px;
+}
+
+.weibo-card {
+    position: absolute;
+    width: 300px;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    pointer-events: auto;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+    transition: box-shadow 0.3s ease;
+    contain: content;
+    isolation: isolate;
+}
+
+.weibo-header {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 12px;
+    overflow: hidden;
+    background: #f0f2f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar svg {
+    width: 24px;
+    height: 24px;
+    opacity: 0.6;
+}
+
+.user-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.username {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.publish-info {
+    font-size: 12px;
+    color: #8590a6;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.publish-info span {
+    margin-right: 8px;
+}
+
+.weibo-content {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+    word-break: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.weibo-stats {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 12px;
+    border-top: 1px solid #f0f2f5;
+}
+
+.stat {
+    font-size: 12px;
+    color: #8590a6;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.stat:hover {
+    color: #1da1f2;
+}
+
+.weibo-card.hover {
+    box-shadow: 0 8px 24px rgba(29, 161, 242, 0.2);
+    transform: translateZ(0) translateY(-2px) scale(1.02);
+}
+
+.weibo-card.focused {
+    cursor: default;
+    box-shadow: 0 12px 48px rgba(29, 161, 242, 0.3);
+    transform: translateZ(0) scale(1.1);
+}
+
+.weibo-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+    border-radius: 12px;
+    pointer-events: none;
+}
+
+.content.blur {
+    filter: blur(3px);
+    transition: filter 0.3s ease;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .weibo-card {
+        width: 280px;
+        padding: 12px;
+    }
+
+    .avatar {
+        width: 32px;
+        height: 32px;
+    }
+
+    .username {
+        font-size: 13px;
+    }
+
+    .weibo-content {
+        font-size: 13px;
+        -webkit-line-clamp: 3;
+    }
+
+    .trigger-area {
+        margin: 15px;
+        height: 80px;
+        font-size: 14px;
+    }
+}

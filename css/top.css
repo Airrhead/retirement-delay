@@ -1,0 +1,379 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.top {
+    width: 100%;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+}
+
+.swiper {
+    width: 100%;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+}
+
+.swiper1 .slide1 {
+    background-image: url(../image/cover.png);
+    background-size: 100% 100%;
+}
+
+.swiper1 .slide2 {
+    background-image: url(../image/cover1.png);
+    background-size: 100% 100%;
+}
+
+.swiper1 .slide3 {
+    background-image: url(../image/cover2.png);
+    background-size: 100% 100%;
+}
+
+.swiper1 .slide4 {
+    background-image: url(../image/cover1.png);
+    background-size: 100% 100%;
+}
+
+.swiper1 .slide5 {
+    background-image: url(../image/cover3.png);
+    background-size: 100% 100%;
+}
+
+.swiper1 .slide6 {
+    background-image: url(../image/1-1.png);
+    background-size: 100% 100%;
+}
+
+
+.swiper1 .slide7 {
+    background-image: url(../image/1-2.png);
+    background-size: 100% 100%;
+}
+
+
+.swiper1 .slide8 {
+    background-image: url(../image/1-3.png);
+    background-size: 100% 100%;
+}
+
+.slider-inner {
+    position: absolute;
+    width: 555px;
+    height: 53%;
+    left: 31%;
+    /* top: 25%; */
+    margin-top: 295px;
+    padding: 10px 0;
+    font-family: 'nansong';
+    font-size: 20px;
+    line-height: 1.5em;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#trigger_800 {
+    position: relative;
+    z-index: 10;
+    margin: 800px auto 0;
+    text-align: justify;
+    height: 10px;
+    background: transparent;
+}
+
+#trigger_500 {
+    position: relative;
+    z-index: 10;
+    margin: 500px auto 0;
+    text-align: justify;
+    height: 10px;
+    background: transparent;
+}
+
+#trigger_100 {
+    position: relative;
+    z-index: 10;
+    margin: 100px auto 0;
+    text-align: justify;
+    height: 10px;
+    background: transparent;
+}
+
+#trigger_250 {
+    position: relative;
+    z-index: 10;
+    margin: 250px auto 0;
+    text-align: justify;
+    height: 10px;
+    background: transparent;
+}
+
+.swiper2 .slide1 {
+    background-image: url(../image/2-1.png);
+    background-size: 100% 100%;
+}
+
+.swiper2 .slide2 {
+    background-image: url(../image/2-2.png);
+    background-size: 100% 100%;
+}
+
+.swiper2 .slide3 {
+    background-image: url(../image/2-3.png);
+    background-size: 100% 100%;
+}
+
+.swiper3 .slide1 {
+    background-image: url(../image/3-1.png);
+    background-size: 100% 100%;
+}
+
+.swiper3 .slide2 {
+    background-image: url(../image/3-2.png);
+    background-size: 100% 100%;
+}
+
+.swiper3 .slide3 {
+    background-image: url(../image/3-3.png);
+    background-size: 100% 100%;
+}
+
+.swiper3 .slide4 {
+    background-image: url(../image/3-4.png);
+    background-size: 100% 100%;
+}
+
+.swiper4 .slide1 {
+    background-image: url(../image/4-1.png);
+    background-size: 100% 100%;
+}
+
+.swiper4 .slide2 {
+    background-image: url(../image/4-2.png);
+    background-size: 100% 100%;
+}
+
+.swiper4 .slide3 {
+    background-image: url(../image/4-3.png);
+    background-size: 100% 100%;
+}
+
+.swiper5 .slide1 {
+    background-image: url(../image/ending-1.png);
+    background-size: 100% 100%;
+}
+
+.swiper5 .slide2 {
+    background-image: url(../image/ending-2.png);
+    background-size: 100% 100%;
+}
+
+.swiper5 .slide3 {
+    background-image: url(../image/ending-3.png);
+    background-size: 100% 100%;
+}
+
+.swiper5 .slide4 {
+    background-image: url(../image/ending-4.png);
+    background-size: 100% 100%;
+}
+
+.swiper5 .slide5 {
+    background-image: url(../image/ending-5.png);
+    background-size: 100% 100%;
+}
+
+.swiper5 .slide6 {
+    background-image: url(../image/ending-6.png);
+    background-size: 100% 100%;
+}
+
+.swiper5 .slide7 {
+    background-image: url(../image/ending-7.png);
+    background-size: 100% 100%;
+}
+
+.bottom-placeholder {
+    width: 200px;
+    height: 400px;
+    background-color: transparent;
+    margin: 0 auto;
+    position: relative;
+}
+
+@media screen and (max-width: 600px) {
+    .swiper1 .slide1 {
+        background-image: url(../image/cover-mobile.png);
+        background-size: 100% 100%;
+    }
+
+    .swiper1 .slide2 {
+        background-image: url(../image/cover3-mobile.png);
+        background-size: 100% 100%;
+    }
+
+    .swiper1 .slide3 {
+        background-image: url(../image/cover1-mobile.png);
+        background-size: 100% 100%;
+    }
+
+    .swiper1 .slide4 {
+        background-image: url(../image/cover3-mobile.png);
+        background-size: 100% 100%;
+    }
+
+    .swiper1 .slide5 {
+        background-image: url(../image/cover2-mobile.png);
+        background-size: 100% 100%;
+    }
+
+    .swiper1 .slide6 {
+        background-image: url(../image/1-1-mobile.png);
+        background-size: 100% 100%;
+    }
+
+
+    .swiper1 .slide7 {
+        background-image: url(../image/1-2-mobile.png);
+        background-size: 100% 100%;
+    }
+
+
+    .swiper1 .slide8 {
+        background-image: url(../image/1-3-mobile.png);
+        background-size: 100% 100%;
+    }
+
+    /* 
+    #trigger_800 {
+        position: relative;
+        z-index: 10;
+        margin: 400px auto 0;
+        text-align: justify;
+        height: 10px;
+        background: transparent;
+    }
+
+    #trigger_500 {
+        position: relative;
+        z-index: 10;
+        margin: 250px auto 0;
+        text-align: justify;
+        height: 10px;
+        background: transparent;
+    }
+
+    #trigger_100 {
+        position: relative;
+        z-index: 10;
+        margin: 50px auto 0;
+        text-align: justify;
+        height: 10px;
+        background: transparent;
+    }
+
+    #trigger_250 {
+        position: relative;
+        z-index: 10;
+        margin: 125px auto 0;
+        text-align: justify;
+        height: 10px;
+        background: transparent;
+    } */
+
+    .swiper2 .slide1 {
+        background-image: url(../image/2-1-mobile.png);
+        background-size: 100% 100%;
+    }
+
+    .swiper2 .slide2 {
+        background-image: url(../image/2-2-mobile.png);
+        background-size: 100% 100%;
+    }
+
+    .swiper2 .slide3 {
+        background-image: url(../image/2-3-mobile.png);
+        background-size: 100% 100%;
+    }
+
+    .swiper3 .slide1 {
+        background-image: url(../image/3-1-mobile.png);
+        background-size: 100% 100%;
+    }
+
+    .swiper3 .slide2 {
+        background-image: url(../image/3-2-mobile.png);
+        background-size: 100% 100%;
+    }
+
+    .swiper3 .slide3 {
+        background-image: url(../image/3-3-mobile.png);
+        background-size: 100% 100%;
+    }
+
+    .swiper3 .slide4 {
+        background-image: url(../image/3-4-mobile.png);
+        background-size: 100% 100%;
+    }
+
+    .swiper4 .slide1 {
+        background-image: url(../image/4-1-mobile.png);
+        background-size: 100% 100%;
+    }
+
+    .swiper4 .slide2 {
+        background-image: url(../image/4-2-mobile.png);
+        background-size: 100% 100%;
+    }
+
+    .swiper4 .slide3 {
+        background-image: url(../image/4-3-mobile.png);
+        background-size: 100% 100%;
+    }
+
+    .swiper5 .slide1 {
+        background-image: url(../image/ending-1-mobile.png);
+        background-size: 100% 100%;
+    }
+
+    .swiper5 .slide2 {
+        background-image: url(../image/ending-2-mobile.png);
+        background-size: 100% 100%;
+    }
+
+    .swiper5 .slide3 {
+        background-image: url(../image/ending-3-mobile.png);
+        background-size: 100% 100%;
+    }
+
+    .swiper5 .slide4 {
+        background-image: url(../image/ending-4-mobile.png);
+        background-size: 100% 100%;
+    }
+
+    .swiper5 .slide5 {
+        background-image: url(../image/ending-5-mobile.png);
+        background-size: 100% 100%;
+    }
+
+    .swiper5 .slide6 {
+        background-image: url(../image/ending-6-mobile.png);
+        background-size: 100% 100%;
+    }
+
+    .swiper5 .slide7 {
+        background-image: url(../image/ending-7-mobile.png);
+        background-size: 100% 100%;
+    }
+
+    .bottom-placeholder {
+        width: 200px;
+        height: 400px;
+        background-color: transparent;
+        margin: 0 auto;
+        position: relative;
+    }
+}

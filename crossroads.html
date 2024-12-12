@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Reconstruction</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .image-container {
+            position: relative;
+            width: 100%;
+            max-width: 100vw;
+            height: auto;
+            overflow: hidden;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        .element {
+            position: absolute;
+            transform-origin: top left;
+            transform: scale(var(--scale-ratio, 1));
+            cursor: pointer;
+        }
+        .tooltip {
+            position: fixed;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 14px;
+            max-width: 300px;
+            z-index: 1000;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+            line-height: 1.5;
+        }
+        .tooltip.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container" id="container">
+        <img src="crossroads/00bg.png" alt="Background">
+        <img class="element" 
+             src="crossroads/01youyu.png"
+             style="left: 1998px; top: 648px;"
+             alt="01youyu.png">
+        <img class="element" 
+             src="crossroads/02qiu.png"
+             style="left: 2100px; top: 688px;"
+             alt="02qiu.png">
+        <img class="element" 
+             src="crossroads/03zhaolaoshi.png"
+             style="left: 900px; top: 891px;"
+             alt="03zhaolaoshi.png">
+        <img class="element" 
+             src="crossroads/04xu.png"
+             style="left: 1125px; top: 225px;"
+             alt="04xu.png">
+        <img class="element" 
+             src="crossroads/05shikuaiji.png"
+             style="left: 1665px; top: 36px;"
+             alt="05shikuaiji.png">
+        <img class="element" 
+             src="crossroads/06haiertama.png"
+             style="left: 450px; top: 720px;"
+             alt="06haiertama.png">
+        <img class="element" 
+             src="crossroads/07may.png"
+             style="left: 1625px; top: 398px;"
+             alt="07may.png">
+        <img class="element" 
+             src="crossroads/08ma.png"
+             style="left: 100px; top: 922px;"
+             alt="08ma.png">
+        <img class="element" 
+             src="crossroads/09wangshuxin.png"
+             style="left: 1703px; top: 1054px;"
+             alt="09wangshuxin.png">
+        <img class="element" 
+             src="crossroads/10guan.png"
+             style="left: 990px; top: 67px;"
+             alt="10guan.png">
+    </div>
+    <script>
+        // Character data for tooltips
+        const characterData = {
+            '01youyu': {
+                name: '鱿鱼',
+                job: '国有企业柜员',
+                opinion: '不支持延迟退休',
+                quote: '“干不到这么大岁数，给年轻人也来点机会。”'
+            },
+            '02qiu': {
+                name: '邱',
+                job: '国有银行网点负责人，将于57岁时退休',
+                opinion: '不支持延迟退休',
+                quote: '“工作压力、强度太大。”'
+            },
+            '03zhaolaoshi': {
+                name: '赵老师',
+                job: '私营企业总经理，将于2035年4月退休',
+                opinion: '支持延迟退休',
+                quote: '“政府压力大。”'
+            },
+            '04xu': {
+                name: '许',
+                job: '教师，将于62岁时退休',
+                opinion: '不支持延迟退休',
+                quote: '“给年轻人更多就业机会。”'
+            },
+            '05shikuaiji': {
+                name: '史会计',
+                job: '75岁，国有企业会计师，已于50岁时退休',
+                opinion: '不支持延迟退休',
+                quote: '“在职老同志不退休，哪有位子给就业人员？”'
+            },
+            '06haiertama': {
+                name: '孩儿他妈',
+                job: '自由职业者，已于55岁时退休',
+                opinion: '退休生活质量较差，满意度较低',
+                quote: ''
+            },
+            '07may': {
+                name: 'May',
+                job: '外资企业专业技术职员',
+                opinion: '不支持延迟退休',
+                quote: ''
+            },
+            '08ma': {
+                name: '马',
+                job: '政府机构专业技术职员',
+                opinion: '支持延迟退休',
+                quote: '“考虑退休金的差别。”'
+            },
+            '09wangshuxin': {
+                name: '王舒欣',
+                job: '全日制研究生',
+                opinion: '支持延迟退休',
+                quote: '“此前退休年龄适应的人均期望寿命约为45周岁，而今这个数字大幅提升，延迟退休是适应人口老龄化社会的必然之举。”'
+            },
+            '10guan': {
+                name: '管',
+                job: '',
+                opinion: '支持延迟退休',
+                quote: '“延迟退休有助于推进性别平等，让退休年龄过早成为女性升职的阻碍的可能性降低。”'
+            }
+        };
+
+        // Create tooltip element
+        const tooltip = document.createElement('div');
+        tooltip.className = 'tooltip';
+        document.body.appendChild(tooltip);
+
+        // Add hover events to elements
+        document.querySelectorAll('.element').forEach(element => {
+            element.addEventListener('mouseenter', (e) => {
+                const imgSrc = element.getAttribute('src');
+                const id = imgSrc.split('/').pop().replace('.png', '');
+                const data = characterData[id];
+                
+                if (data) {
+                    const parts = [];
+                    if (data.name && data.job) {
+                        parts.push(`${data.name}，${data.job}`);
+                    } else if (data.name) {
+                        parts.push(data.name);
+                    }
+                    if (data.opinion) {
+                        parts.push(data.opinion);
+                    }
+                    if (data.quote) {
+                        parts.push(data.quote);
+                    }
+                    tooltip.innerHTML = parts.join('<br>');
+                    tooltip.classList.add('show');
+                }
+            });
+
+            element.addEventListener('mousemove', (e) => {
+                const x = e.clientX + 15;
+                const y = e.clientY + 15;
+                tooltip.style.left = x + 'px';
+                tooltip.style.top = y + 'px';
+            });
+
+            element.addEventListener('mouseleave', () => {
+                tooltip.classList.remove('show');
+            });
+        });
+
+        function adjustElements() {
+            const container = document.getElementById('container');
+            const backgroundImg = container.querySelector('img');
+            const elements = container.querySelectorAll('.element');
+            
+            // 获取原始背景图片的宽度
+            const originalWidth = 2701;
+            // 计算缩放比例
+            const scaleRatio = container.offsetWidth / originalWidth;
+            
+            // 更新所有元素的位置
+            elements.forEach(element => {
+                const originalLeft = parseInt(element.style.left);
+                const originalTop = parseInt(element.style.top);
+                
+                element.style.left = (originalLeft * scaleRatio) + 'px';
+                element.style.top = (originalTop * scaleRatio) + 'px';
+                element.style.setProperty('--scale-ratio', scaleRatio);
+            });
+        }
+
+        // 页面加载和窗口调整时调整元素
+        window.addEventListener('load', adjustElements);
+        window.addEventListener('resize', adjustElements);
+    </script>
+</body>
+</html>
